@@ -5,8 +5,13 @@ import { cn } from "@/lib/utils";
 import Logo from "./Logo";
 import { Button } from "@/components/ui/button";
 import { ModeToggle } from "@/components/mode-toggle";
+import { useConvexAuth } from "convex/react";
+import { SignInButton, UserButton } from "@clerk/clerk-react";
+import { Spinner } from "@/components/Spinner";
+import Link from "next/link";
 const Navbar = () => {
   const scrolled = useScrollTop();
+  const {isAuthenticated,isLoading}=useConvexAuth()
   return (
     <div
       className={cn(
@@ -16,9 +21,30 @@ const Navbar = () => {
     >
       <Logo />
       <div className="md:ml-auto md:justify-end justify-between w-full flex items-center gap-x-2">
-        <Button variant="ghost" size="sm">
-          LogIn
-        </Button>
+        {isLoading && <Spinner  />}
+        {!isAuthenticated && !isLoading && (
+          <>
+          <SignInButton mode="modal">
+            <Button variant="ghost" size="sm">
+              Sign In
+            </Button>
+          </SignInButton>
+          <SignInButton mode="modal">
+            <Button  size="sm">
+             Get Sotion for free
+            </Button>
+          </SignInButton>
+          </>
+        )}
+        {isAuthenticated && !isLoading && (
+          <>
+          <Button variant="ghost" size="sm" asChild>
+            <Link href="/documents">Enter Sotion</Link>
+          </Button>
+          <UserButton afterSignOutUrl="/" />
+          </>
+        )}
+      
         <ModeToggle />
       </div>
     </div>
