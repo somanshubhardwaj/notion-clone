@@ -102,7 +102,7 @@ const Item = ({
     >
       {!!id && (
         <div
-          className="h-full rounded-sm hover:bg-neutral-300 dark:bg-neutral-600 mr-1 flex items-center justify-center"
+          className="h-full rounded-sm hover:bg-neutral-300 dark:hover:bg-neutral-600 mr-1  "
           onClick={handleExpand}
         >
           <ChevronIcon
@@ -110,7 +110,7 @@ const Item = ({
               e.stopPropagation();
               onExpand?.();
             }}
-            className="mr-2 h-4 w-4 text-muted-foreground"
+            className=" h-4 w-4 shrick-0 text-muted-foreground/50"
           />
         </div>
       )}

@@ -9,9 +9,9 @@ import {
   Settings,
   Trash,
 } from "lucide-react";
-import React, { ElementRef, use, useEffect, useRef, useState } from "react";
+import React, { ElementRef, useEffect, useRef, useState } from "react";
 import { useMediaQuery } from "usehooks-ts";
-import { usePathname } from "next/navigation";
+import { useParams, usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { UserItem } from "./user-item";
 import { useMutation, useQuery } from "convex/react";
@@ -27,7 +27,9 @@ import {
 import Trashbox from "./Trashbox";
 import { useSearch } from "@/hooks/useSearch";
 import { useSettings } from "@/hooks/useSettings";
+import Navbar from "./Navbar";
 const Navigation = () => {
+  const params = useParams();
   const settings = useSettings();
   const search = useSearch();
   const pathname = usePathname();
@@ -178,15 +180,19 @@ const Navigation = () => {
         )}
         ref={navbarRef}
       >
-        <nav className="bg-transparent px-3 py-2 w-full">
-          {isCollapsed && (
-            <MenuIcon
-              className="h-6 w-6 text-muted-foreground"
-              role="button"
-              onClick={resetWidth}
-            />
-          )}
-        </nav>
+        {!!params.documentId ? (
+          <Navbar isCollapsed={isCollapsed} onResetWidth={resetWidth} />
+        ) : (
+          <nav className="bg-transparent px-3 py-2 w-full">
+            {isCollapsed && (
+              <MenuIcon
+                className="h-6 w-6 text-muted-foreground"
+                role="button"
+                onClick={resetWidth}
+              />
+            )}
+          </nav>
+        )}
       </div>
     </>
   );
