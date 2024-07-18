@@ -11,11 +11,13 @@ import { Button } from "@/components/ui/button";
 import { ImageIcon, Smile, X } from "lucide-react";
 import { useMutation } from "convex/react";
 import { api } from "@/convex/_generated/api";
+import { useCover } from "@/hooks/useCover";
 const Toolbar = ({ initialdata, preview }: ToolbarProps) => {
   const inputRef = React.useRef<ElementRef<"textarea">>(null);
   const [isEditing, setIsEditing] = React.useState(false);
   const [value, setValue] = React.useState(initialdata.title);
   const update = useMutation(api.documents.update);
+  const coverimage = useCover();
 
   const enableInput = () => {
     if (preview) return;
@@ -80,13 +82,16 @@ const Toolbar = ({ initialdata, preview }: ToolbarProps) => {
             </Button>
           </IconPicker>
         )}
-        <Button
-          className="text-muted-foreground text-xs"
-          variant={"outline"}
-          size={"sm"}
-        >
-          <ImageIcon className="w-6 h-6 mr-2" /> Add cover
-        </Button>
+        {!initialdata.coverImage && !preview && (
+          <Button
+            className="text-muted-foreground text-xs"
+            variant={"outline"}
+            size={"sm"}
+            onClick={coverimage.onOpen}
+          >
+            <ImageIcon className="w-6 h-6 mr-2" /> Add cover
+          </Button>
+        )}
       </div>
       {isEditing && !preview ? (
         <TextareaAutosize
