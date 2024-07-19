@@ -29,7 +29,7 @@ const MenuItem = ({ documentId }: MenuItemProps) => {
       success: "Archived",
       error: "Failed to archive",
     });
-    router.push("/documents");
+    router.push(`/documents`);
   };
   return (
     <DropdownMenu>

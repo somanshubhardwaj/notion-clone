@@ -11,7 +11,7 @@ import {
 } from "lucide-react";
 import React, { ElementRef, useEffect, useRef, useState } from "react";
 import { useMediaQuery } from "usehooks-ts";
-import { useParams, usePathname } from "next/navigation";
+import { useParams, usePathname, useRouter } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { UserItem } from "./user-item";
 import { useMutation, useQuery } from "convex/react";
@@ -113,10 +113,12 @@ const Navigation = () => {
       setTimeout(() => setIsResetting(false), 300);
     }
   };
-
+  const router = useRouter();
   const handleCreate = () => {
     const promise = create({
       title: "Untitled",
+    }).then((documentId) => {
+      router.push(`/documents/${documentId}`);
     });
     toast.promise(promise, {
       loading: "Creating...",
