@@ -38,6 +38,7 @@ const Heading = () => {
           fallbackRedirectUrl={process.env.homeurl}
           signUpFallbackRedirectUrl={process.env.homeurl}
           signUpForceRedirectUrl={process.env.homeurl}
+          forceRedirectUrl={process.env.homeurl}
         >
           <Button>
             Get Sotion for free <ArrowRight className="h-4 w-4 ml-2" />

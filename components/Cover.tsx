@@ -37,7 +37,7 @@ const Cover = ({ url, preview }: CoverProps) => {
     >
       {!!url && <Image src={url} fill className="object-cover" alt="Cover" />}
       {url && !preview && (
-        <div className="opacity-0 group-hover:opacity-100 absolute bottom-5 right-5 flex items-center gap-x-2">
+        <div className="lg:opacity-0 group-hover:opacity-100 absolute bottom-5 right-5 flex items-center gap-x-2">
           <Button
             onClick={() => coverImage.onReplace(url)}
             className="text-muted-foreground text-xs"

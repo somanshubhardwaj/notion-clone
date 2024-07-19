@@ -29,6 +29,7 @@ const Navbar = () => {
               fallbackRedirectUrl={process.env.homeurl}
               signUpFallbackRedirectUrl={process.env.homeurl}
               signUpForceRedirectUrl={process.env.homeurl}
+              forceRedirectUrl={process.env.homeurl}
             >
               <Button variant="ghost" size="sm">
                 Sign In
@@ -39,6 +40,7 @@ const Navbar = () => {
               fallbackRedirectUrl={process.env.homeurl}
               signUpFallbackRedirectUrl={process.env.homeurl}
               signUpForceRedirectUrl={process.env.homeurl}
+              forceRedirectUrl={process.env.homeurl}
             >
               <Button size="sm">Get Sotion for free</Button>
             </SignInButton>

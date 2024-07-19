@@ -41,7 +41,7 @@ const DocumentPage = ({ params }: DocumentPageProps) => {
 
   if (document === null) return <div>Not found</div>;
   return (
-    <div className="pb-40">
+    <div className="pb-40 p-2">
       <Cover url={document.coverImage} />
       <div className="md:max-w-3xl lg:max-w-4xl mx-auto">
         <Toolbar initialdata={document} />
