@@ -33,8 +33,8 @@ const MenuItem = ({ documentId }: MenuItemProps) => {
   };
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger asChild>
-        <Button variant="ghost" size="sm">
+      <DropdownMenuTrigger asChild className="z-0">
+        <Button variant="ghost" size="sm" className="">
           <MoreHorizontal className="w-4 h-4 " />
         </Button>
       </DropdownMenuTrigger>

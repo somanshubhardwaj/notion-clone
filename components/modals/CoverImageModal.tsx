@@ -1,6 +1,6 @@
 "use client";
 import exp from "constants";
-import { Dialog, DialogContent, DialogHeader } from "../ui/dialog";
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "../ui/dialog";
 import { useCover } from "@/hooks/useCover";
 import { SingleImageDropzone } from "../ImageDropzone";
 import React, { useState } from "react";
@@ -44,10 +44,15 @@ export const CoverImageModal = () => {
   };
   return (
     <Dialog open={coverImage.isOpen} onOpenChange={coverImage.onClose}>
-      <DialogContent>
+      <DialogContent aria-describedby={undefined}>
         <DialogHeader className="border-b pb-3">
           <h2 className="text-lg font-semibold text-center">Cover Image</h2>
         </DialogHeader>
+        <DialogTitle>
+          <span className="text-sm font-medium">
+            Upload a cover image for your document.
+          </span>
+        </DialogTitle>
         <SingleImageDropzone
           onChange={onChange}
           className="w-full outline-none "

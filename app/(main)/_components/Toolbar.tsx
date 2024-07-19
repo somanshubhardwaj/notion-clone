@@ -70,7 +70,7 @@ const Toolbar = ({ initialdata, preview }: ToolbarProps) => {
           <p className="text-6xl">{initialdata.icon}</p>
         </div>
       )}
-      <div className="opacity-0 group-hover:opacity-100 flex items-center gap-x-1 py-4">
+      <div className="lg:opacity-0 group-hover:opacity-100 flex items-center gap-x-1 py-4">
         {!initialdata.icon && !preview && (
           <IconPicker onChange={onIconSelect} asChild>
             <Button
