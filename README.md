@@ -1,5 +1,5 @@
 
-# Notion Clone
+# Sotion - A Notion Clone
 
 This project is a clone of Notion, aiming to replicate some of the core features of the popular note-taking and organization tool. It's built using a modern tech stack including Next.js, React, Convex, and TailwindCSS, providing a rich, interactive user experience.
 
