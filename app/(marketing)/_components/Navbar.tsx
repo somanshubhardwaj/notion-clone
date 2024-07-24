@@ -24,24 +24,12 @@ const Navbar = () => {
         {isLoading && <Spinner />}
         {!isAuthenticated && !isLoading && (
           <>
-            <SignInButton
-              mode="modal"
-              fallbackRedirectUrl={process.env.homeurl}
-              signUpFallbackRedirectUrl={process.env.homeurl}
-              signUpForceRedirectUrl={process.env.homeurl}
-              forceRedirectUrl={process.env.homeurl}
-            >
+            <SignInButton mode="redirect">
               <Button variant="ghost" size="sm">
                 Sign In
               </Button>
             </SignInButton>
-            <SignInButton
-              mode="modal"
-              fallbackRedirectUrl={process.env.homeurl}
-              signUpFallbackRedirectUrl={process.env.homeurl}
-              signUpForceRedirectUrl={process.env.homeurl}
-              forceRedirectUrl={process.env.homeurl}
-            >
+            <SignInButton mode="redirect">
               <Button size="sm">Get Sotion for free</Button>
             </SignInButton>
           </>
