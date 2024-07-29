@@ -6,7 +6,7 @@ import Logo from "./Logo";
 import { Button } from "@/components/ui/button";
 import { ModeToggle } from "@/components/mode-toggle";
 import { useConvexAuth } from "convex/react";
-import { SignInButton, UserButton } from "@clerk/clerk-react";
+import { SignInButton, UserButton } from "@clerk/nextjs";
 import { Spinner } from "@/components/Spinner";
 import Link from "next/link";
 const Navbar = () => {
